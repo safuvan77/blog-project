@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Title : </label><input type="text" name="heading"><br>
+
+
+
+    <label>Image : </label><input type="file" accept="image/*" name="image"><br>
+    <label>Content : </label><textarea name="content"></textarea><br>
+      <label>category: </label>
+    <select name="category">
+        {%for choice in choices%}
+            <option value="{{choice.0}}">{{choice.1}}</option>
+
+        {%endfor%}
+    </select>
+    <input type="submit" value="Submit">
+</form>
+{% include 'section.html' %}
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3> Change Password</h3>
+    <form method="post">
+        {% csrf_token %}
+<!--        <label>Username : </label><input type="text" name="username"><br>-->
+        <label >Password : </label><input type="password" name="password1"><br>
+        <label >Confirm Password : </label><input type="password" name="password2"><br>
+        <input type="submit" value="Reset">
+    </form>
+    {% for msg in messages %}
+        <span style="color:{% if msg.tags == 'success' %}green{% else %}red{% endif %}">{{ msg }}</span><br>
+    {% endfor %}
+{% endblock content %}
